@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HappyTab | Measure Customer Satisfaction on WhatsApp</title>
+    <meta
+      name="description"
+      content="HappyTab helps Shopify stores collect, manage, and act on customer reviews through WhatsApp." />
+    <style>
+      :root {
+        --green-950: #0d3b30;
+        --green-700: #1d9e75;
+        --green-600: #2cb786;
+        --green-100: #e8f7f1;
+        --text: #14251f;
+        --muted: #4f675f;
+        --border: rgba(13, 59, 48, 0.12);
+        --bg: #f5fbf8;
+        --white: #ffffff;
+        --shadow: 0 20px 50px rgba(13, 59, 48, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #fafffc 0%, var(--bg) 100%);
+        line-height: 1.7;
+        text-align: left;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        gap: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 800;
+        font-size: 1.1rem;
+      }
+      .brand-badge {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--green-700), var(--green-950));
+        color: white;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        color: var(--muted);
+        margin-left: auto;
+      }
+      .nav-links a:hover { color: var(--green-950); }
+      .btn {
+        border: 0;
+        border-radius: 999px;
+        padding: 0.85rem 1.2rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--green-700), var(--green-600));
+        color: white;
+        box-shadow: 0 12px 24px rgba(29, 158, 117, 0.22);
+      }
+      .btn-secondary {
+        background: white;
+        color: var(--green-950);
+        border: 1px solid var(--border);
+      }
+
+      .hero {
+        padding: 4rem 0 3rem;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--green-100);
+        color: var(--green-950);
+        padding: 0.45rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+      .hero p, section p, .card p, .testimonial p {
+        color: var(--muted);
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+      .hero-card {
+        background: linear-gradient(145deg, white, var(--green-100));
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.2rem;
+        box-shadow: var(--shadow);
+      }
+      .hero-visual {
+        border-radius: 24px;
+        padding: 1rem;
+        background: white;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .dashboard {
+        display: grid;
+        gap: 0.8rem;
+      }
+      .stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg);
+        padding: 0.9rem 1rem;
+        border-radius: 16px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      .pill.good { background: #eafbf5; color: var(--green-700); }
+      .pill.bad { background: #fff3e9; color: #c25b00; }
+
+      section { padding: 3rem 0; }
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+      }
+      .section-title h2 {
+        font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+        margin: 0;
+      }
+      .grid { display: grid; gap: 1rem; }
+      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.2rem;
+        box-shadow: var(--shadow);
+      }
+      .card-number {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        margin-bottom: 0.8rem;
+        background: var(--green-100);
+        color: var(--green-950);
+        font-weight: 800;
+      }
+      .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .price-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .price-card {
+        padding: 1.4rem;
+        position: relative;
+      }
+      .price-card.featured {
+        border: 2px solid var(--green-700);
+        transform: translateY(-6px);
+      }
+      .price-tag {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--green-950);
+      }
+      .price-card ul { padding-right: 1rem; color: var(--muted); }
+      .testimonial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .testimonial { font-style: italic; }
+
+      footer {
+        padding: 2rem 0 3rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.7rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero, .steps, .features, .price-grid, .testimonial-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero { padding-top: 2.5rem; }
+      }
+      @media (max-width: 640px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#" class="brand">
+          <span class="brand-badge">HT</span>
+          <span>HappyTab</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+          <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero">
+        <div>
+          <div class="eyebrow">⚡ Reviews that grow with every order</div>
+          <h1>Turn every order into a customer review</h1>
+          <p>
+            HappyTab helps Shopify stores send instant WhatsApp follow-ups after purchases,
+            collect feedback, and surface negative experiences before they become churn.
+          </p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">Start free</a>
+            <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
+          </div>
+          <div class="hero-card" style="margin-top: 1.4rem;">
+            <strong>Trusted by modern e-commerce teams</strong>
+            <p style="margin: 0.35rem 0 0;">Automate review collection in Arabic and English with RTL-friendly messaging.</p>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="dashboard">
+            <div class="stat-row">
+              <span>Orders today</span>
+              <strong>128</strong>
+            </div>
+            <div class="stat-row">
+              <span>Response rate</span>
+              <strong>74%</strong>
+            </div>
+            <div class="stat-row">
+              <span>Negative alerts</span>
+              <strong class="pill bad">3 urgent</strong>
+            </div>
+            <div class="stat-row">
+              <span>Average rating</span>
+              <strong class="pill good">4.8/5</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="container">
+        <div class="section-title">
+          <h2>How it works</h2>
+          <span style="color: var(--muted);">Three simple steps to better reviews</span>
+        </div>
+        <div class="grid steps">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>Customer purchases</h3>
+            <p>A new order is created in Shopify and instantly triggers your review flow.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>WhatsApp message sent</h3>
+            <p>HappyTab sends a friendly, branded message via WhatsApp Business API in Arabic or English.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>Feedback appears in your dashboard</h3>
+            <p>Ratings, notes, and alerts are gathered in one place so your team can respond quickly.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="features" class="container">
+        <div class="section-title">
+          <h2>Features</h2>
+          <span style="color: var(--muted);">Built for growth-minded e-commerce teams</span>
+        </div>
+        <div class="grid features">
+          <article class="card">
+            <h3>Automatic review requests</h3>
+            <p>Trigger feedback after every successful order without manual follow-up.</p>
+          </article>
+          <article class="card">
+            <h3>Arabic / English, RTL-ready</h3>
+            <p>Deliver polished conversations for customers in the language and layout they expect.</p>
+          </article>
+          <article class="card">
+            <h3>Instant negative alerts</h3>
+            <p>Flag low ratings and service issues before they escalate into public complaints.</p>
+          </article>
+          <article class="card">
+            <h3>Employee and service ratings</h3>
+            <p>Understand which team members, teams, or fulfillment steps need attention.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pricing" class="container">
+        <div class="section-title">
+          <h2>Pricing</h2>
+          <span style="color: var(--muted);">Flexible plans for small stores and scaling teams</span>
+        </div>
+        <div class="grid price-grid">
+          <article class="card price-card">
+            <h3>Starter</h3>
+            <div class="price-tag">$49<span style="font-size: 1rem; color: var(--muted);">/mo</span></div>
+            <p>Perfect for early-stage brands.</p>
+            <ul>
+              <li>Up to 500 reviews/month</li>
+              <li>Basic WhatsApp templates</li>
+              <li>Email support</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Choose Starter</a>
+          </article>
+          <article class="card price-card featured">
+            <h3>Growth</h3>
+            <div class="price-tag">$99<span style="font-size: 1rem; color: var(--muted);">/mo</span></div>
+            <p>For stores generating consistent revenue.</p>
+            <ul>
+              <li>Unlimited review flows</li>
+              <li>Smart alerts and segmentation</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Growth</a>
+          </article>
+          <article class="card price-card">
+            <h3>Pro</h3>
+            <div class="price-tag">$199<span style="font-size: 1rem; color: var(--muted);">/mo</span></div>
+            <p>Advanced operations for multi-team brands.</p>
+            <ul>
+              <li>Advanced analytics</li>
+              <li>Team-based reporting</li>
+              <li>Dedicated onboarding</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Choose Pro</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <span style="color: var(--muted);">Placeholder social proof</span>
+        </div>
+        <div class="grid testimonial-grid">
+          <article class="card testimonial">
+            “We reduced missed follow-ups and saw more reviews within the first month.” — Maya, Founder
+          </article>
+          <article class="card testimonial">
+            “The Arabic experience feels native and our customers respond much faster.” — Omar, Ops Lead
+          </article>
+          <article class="card testimonial">
+            “Negative alerts helped us fix issues before they hurt our brand.” — Lina, CX Manager
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container">
+        <h3>HappyTab</h3>
+        <p>Turn feedback into growth with WhatsApp-powered review automation.</p>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="mailto:hello@happytab.app">hello@happytab.app</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
