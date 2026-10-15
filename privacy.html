@@ -33,6 +33,26 @@
       a { color: var(--green-700); }
       h1, h2 { color: var(--green-950); }
       .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+      .company-note {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border);
+      }
+      .company-label {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .company-logo {
+        width: 100px;
+        height: auto;
+        flex-shrink: 0;
+        display: block;
+        /* the source image carries empty space below the wordmark */
+        transform: translateY(3px);
+      }
     </style>
   </head>
   <body>
@@ -68,6 +88,11 @@
         <p>
           For privacy questions, contact us at <a href="mailto:info@happytap.io">info@happytap.io</a>.
         </p>
+
+        <div class="company-note">
+          <img src="nassfeed-logo.webp" alt="Nassfeed" class="company-logo" />
+          <span class="company-label">This website is affiliated with <strong>Nassfeed</strong>.</span>
+        </div>
       </div>
     </div>
   </body>
