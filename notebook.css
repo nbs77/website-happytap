@@ -1,0 +1,257 @@
+/* Shared notebook theme for every page: a spiral-bound, ruled sheet on a
+   desk, with hand-drawn marks in the HappyTap greens. Page-specific layout
+   stays in each page's own <style>. */
+
+:root {
+  --green-950: #0d3b30;
+  --green-700: #1d9e75;
+  --green-600: #2cb786;
+  --green-200: #cdeee0;
+  --green-100: #e8f7f1;
+  --text: #14251f;
+  --muted: #4f675f;
+  --border: rgba(13, 59, 48, 0.14);
+  --desk: #e4f2eb;
+  --paper: #fffefa;
+  --rule: rgba(29, 158, 117, 0.13);
+  --margin-line: rgba(44, 183, 134, 0.5);
+  --line: 32px;
+  /* Caveat has no Arabic glyphs, so Arabic falls through to Marhey */
+  --hand: Caveat, Marhey, cursive;
+  /* the uneven corners make boxes look drawn with a marker */
+  --sketch-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+
+  --mark-brush: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M3 14 C40 6 120 4 197 9 L195 33 C130 37 60 38 5 34 Z' fill='%232cb786' fill-opacity='.3'/%3E%3C/svg%3E");
+  --mark-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 8 C50 3 110 2 197 6 M24 12 C80 8 140 8 178 10' fill='none' stroke='%232cb786' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --mark-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' preserveAspectRatio='none'%3E%3Cpath d='M52 4 C20 3 4 18 6 32 C8 50 40 57 62 55 C88 52 97 36 93 22 C89 9 66 2 40 7' fill='none' stroke='%231d9e75' stroke-width='2.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --mark-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 7 C12 5 22 6 27 6 C28 13 27 21 27 27 C20 28 11 27 5 27 C4 20 5 12 5 7 Z' fill='none' stroke='%230d3b30' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M9 16 L14 22 L29 3' fill='none' stroke='%231d9e75' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  /* one spiral ring: wire on the desk side, punched hole on the page */
+  --mark-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 34'%3E%3Ccircle cx='31' cy='17' r='4.6' fill='%23d3e6dc' stroke='%230d3b30' stroke-opacity='.18'/%3E%3Crect x='3' y='12' width='29' height='10' rx='5' fill='none' stroke='%2378877f' stroke-width='2.6'/%3E%3Cpath d='M6 14 H28' stroke='%23ffffff' stroke-opacity='.7' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+  text-align: start;
+  /* the desk under the notebook */
+  background:
+    radial-gradient(circle, rgba(13, 59, 48, 0.07) 1px, transparent 1.5px) 0 0 / 18px 18px,
+    var(--desk);
+}
+/* Inter has no Arabic coverage */
+html[lang="ar"] body {
+  font-family: Tajawal, "Segoe UI", Tahoma, Arial, sans-serif;
+  line-height: 1.85;
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ---------- the notebook sheet ---------- */
+.sheet {
+  position: relative;
+  width: min(1180px, calc(100% - 3rem));
+  margin: 0 auto 2.5rem;
+  padding: 1rem 3rem 2.5rem;
+  padding-inline-start: 6rem;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 calc(var(--line) - 1px),
+    var(--rule) calc(var(--line) - 1px) var(--line)
+  );
+  background-position: 0 1.25rem;
+  border-radius: 6px 20px 20px 6px;
+  /* two pages peeking out underneath */
+  box-shadow:
+    5px 5px 0 -1px #f6fbf8, 5px 5px 0 0 var(--border),
+    10px 10px 0 -1px #eef7f2, 10px 10px 0 0 var(--border),
+    0 30px 60px -30px rgba(13, 59, 48, 0.4);
+}
+html[dir="rtl"] .sheet {
+  border-radius: 20px 6px 6px 20px;
+  box-shadow:
+    -5px 5px 0 -1px #f6fbf8, -5px 5px 0 0 var(--border),
+    -10px 10px 0 -1px #eef7f2, -10px 10px 0 0 var(--border),
+    0 30px 60px -30px rgba(13, 59, 48, 0.4);
+}
+/* double margin line */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 4.4rem;
+  width: 5px;
+  border-inline: 1.5px solid var(--margin-line);
+  pointer-events: none;
+}
+/* spiral binding */
+.sheet::after {
+  content: "";
+  position: absolute;
+  inset-block: 1.25rem;
+  inset-inline-start: -18px;
+  width: 44px;
+  background: var(--mark-ring) repeat-y 0 0 / 44px 34px;
+  pointer-events: none;
+}
+html[dir="rtl"] .sheet::after { transform: scaleX(-1); }
+
+/* ---------- handwriting & marks ---------- */
+.hand {
+  font-family: var(--hand);
+  font-weight: 700;
+  color: var(--green-700);
+}
+html[lang="ar"] .hand { font-family: Marhey, var(--hand); font-weight: 600; }
+
+.hl {
+  background: var(--mark-brush) no-repeat center bottom / 100% 72%;
+  padding: 0 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* strip of washi tape holding a note down */
+.taped { position: relative; }
+.taped::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 92px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(44, 183, 134, 0.32);
+  clip-path: polygon(0 8%, 4% 0, 8% 10%, 12% 0, 16% 8%, 100% 0, 96% 50%, 100% 100%, 0 100%, 4% 50%);
+  z-index: 1;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  border: 2px solid var(--green-950);
+  border-radius: var(--sketch-radius);
+  padding: 0.7rem 1.3rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--green-950); }
+.btn-primary { background: var(--green-700); color: #fff; }
+.btn-secondary { background: var(--paper); color: var(--green-950); }
+
+/* ---------- language toggle ---------- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--paper);
+  color: var(--green-950);
+  border: 1.5px solid var(--green-950);
+  border-radius: var(--sketch-radius);
+  padding: 0.5rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+.lang-toggle:hover { color: var(--green-700); }
+.lang-toggle svg { width: 16px; height: 16px; flex-shrink: 0; }
+/* The label swaps between "عربي" and "EN" — reserve room so the
+   surrounding nav doesn't shift when it changes. */
+.lang-toggle .lang-text { min-width: 2.4em; text-align: center; }
+
+:focus-visible { outline: 2.5px dashed var(--green-700); outline-offset: 3px; }
+
+/* ---------- legal pages (privacy, terms) ---------- */
+.page-top {
+  width: min(900px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--green-950);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.back-link:hover { background: var(--mark-underline) no-repeat center bottom / 100% 0.45rem; }
+.back-logo { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
+.legal { width: min(900px, calc(100% - 3rem)); padding-top: 2rem; }
+/* body copy sits on the ruled lines */
+.legal { line-height: var(--line); }
+.legal h1 {
+  margin: 0;
+  font-family: var(--hand);
+  font-size: clamp(2.6rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--green-950);
+}
+html[lang="ar"] .legal h1 { font-family: Marhey, var(--hand); font-size: clamp(1.9rem, 5vw, 2.5rem); line-height: 1.4; }
+.legal h2 {
+  display: inline-block;
+  margin: 1.8rem 0 0.2rem;
+  font-size: 1.2rem;
+  line-height: var(--line);
+  color: var(--green-950);
+  background: var(--mark-brush) no-repeat center bottom / 100% 60%;
+  padding: 0 0.2em;
+}
+.legal p { margin: 0 0 0.5rem; color: var(--text); }
+.legal a { color: var(--green-700); font-weight: 700; }
+.legal .meta { color: var(--muted); font-family: var(--hand); font-size: 1.3rem; }
+html[lang="ar"] .legal .meta { font-family: Marhey, var(--hand); font-size: 1rem; }
+.legal .draft-note {
+  margin: 1.2rem 0 0.5rem;
+  padding: 1rem 1.2rem;
+  background: #d9f3e7;
+  box-shadow: 0 12px 16px -12px rgba(13, 59, 48, 0.45);
+  transform: rotate(-0.6deg);
+  line-height: 1.7;
+}
+.legal .company-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2.4rem;
+  padding-top: 1.25rem;
+  border-top: 2px dashed rgba(13, 59, 48, 0.12);
+}
+.company-label { font-size: 0.9rem; color: var(--muted); }
+.company-logo {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  /* the source image carries empty space below the wordmark */
+  transform: translateY(3px);
+}
+
+@media (max-width: 700px) {
+  .sheet {
+    width: calc(100% - 1.75rem);
+    padding: 0.75rem 1.1rem 2rem;
+    padding-inline-start: 2.9rem;
+  }
+  .sheet::before { inset-inline-start: 2.05rem; width: 4px; }
+  .sheet::after { inset-inline-start: -13px; width: 33px; background-size: 33px 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

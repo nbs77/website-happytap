@@ -19,7 +19,8 @@
       "nav.home": "Back to home",
 
       "hero.eyebrow": "⚡ Reviews that grow with every order",
-      "hero.h1": "Turn every order into a customer review",
+      "hero.h1": 'Turn every order into a <span class="hl">customer review</span>',
+      "hero.note": "Your feedback, at a glance",
       "hero.p":
         "HappyTap helps Shopify stores send instant WhatsApp follow-ups after purchases, collect feedback, and surface negative experiences before they become churn.",
       "hero.cta1": "Start free",
@@ -76,21 +77,13 @@
       "price.growth.2": "Smart alerts and segmentation",
       "price.growth.3": "Priority support",
       "price.growth.cta": "Choose Growth",
+      "price.note": "Our pick ✎",
       "price.pro.h": "Pro",
       "price.pro.p": "Advanced operations for multi-team brands.",
       "price.pro.1": "Advanced analytics",
       "price.pro.2": "Team-based reporting",
       "price.pro.3": "Dedicated onboarding",
       "price.pro.cta": "Choose Pro",
-
-      "test.title": "Testimonials",
-      "test.sub": "Placeholder social proof",
-      "test.1":
-        "“We reduced missed follow-ups and saw more reviews within the first month.” — Maya, Founder",
-      "test.2":
-        "“The Arabic experience feels native and our customers respond much faster.” — Omar, Ops Lead",
-      "test.3":
-        "“Negative alerts helped us fix issues before they hurt our brand.” — Lina, CX Manager",
 
       "footer.tagline":
         "Turn feedback into growth with WhatsApp-powered review automation.",
@@ -151,7 +144,8 @@
       "nav.home": "العودة للرئيسية",
 
       "hero.eyebrow": "⚡ تقييمات تنمو مع كل طلب",
-      "hero.h1": "حوّل كل طلب إلى تقييم من عميلك",
+      "hero.h1": 'حوّل كل طلب إلى <span class="hl">تقييم من عميلك</span>',
+      "hero.note": "آراء عملائك في لمحة",
       "hero.p":
         "يساعد HappyTap متاجر شوبيفاي على إرسال رسائل متابعة فورية عبر واتساب بعد الشراء، وجمع آراء العملاء، ورصد التجارب السلبية قبل أن تتحول إلى فقدان للعميل.",
       "hero.cta1": "ابدأ مجانًا",
@@ -206,21 +200,13 @@
       "price.growth.2": "تنبيهات ذكية وتقسيم للعملاء",
       "price.growth.3": "دعم ذو أولوية",
       "price.growth.cta": "اختر النمو",
+      "price.note": "اختيارنا ✎",
       "price.pro.h": "الاحترافية",
       "price.pro.p": "عمليات متقدمة للعلامات متعددة الفرق.",
       "price.pro.1": "تحليلات متقدمة",
       "price.pro.2": "تقارير حسب الفريق",
       "price.pro.3": "إعداد وتهيئة مخصصة",
       "price.pro.cta": "اختر الاحترافية",
-
-      "test.title": "آراء العملاء",
-      "test.sub": "نماذج توضيحية",
-      "test.1":
-        "«قلّلنا المتابعات الفائتة وحصلنا على تقييمات أكثر خلال الشهر الأول.» — مايا، مؤسِّسة",
-      "test.2":
-        "«التجربة العربية تبدو أصيلة وعملاؤنا يستجيبون أسرع بكثير.» — عمر، مدير العمليات",
-      "test.3":
-        "«التنبيهات السلبية ساعدتنا على معالجة المشكلات قبل أن تضرّ بعلامتنا.» — لينا، مديرة تجربة العملاء",
 
       "footer.tagline":
         "حوّل آراء عملائك إلى نمو عبر أتمتة التقييمات على واتساب.",
