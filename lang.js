@@ -6,11 +6,11 @@
 
   var I18N = {
     en: {
-      "index.title": "HappyTab | Measure Customer Satisfaction on WhatsApp",
+      "index.title": "HappyTap | Measure Customer Satisfaction on WhatsApp",
       "index.desc":
-        "HappyTab helps Shopify stores collect, manage, and act on customer reviews through WhatsApp.",
-      "privacy.title": "HappyTab | Privacy Policy",
-      "terms.title": "HappyTab | Terms of Service",
+        "HappyTap helps Shopify stores collect, manage, and act on customer reviews through WhatsApp.",
+      "privacy.title": "HappyTap | Privacy Policy",
+      "terms.title": "HappyTap | Terms of Service",
 
       "nav.features": "Features",
       "nav.pricing": "Pricing",
@@ -21,7 +21,7 @@
       "hero.eyebrow": "⚡ Reviews that grow with every order",
       "hero.h1": "Turn every order into a customer review",
       "hero.p":
-        "HappyTab helps Shopify stores send instant WhatsApp follow-ups after purchases, collect feedback, and surface negative experiences before they become churn.",
+        "HappyTap helps Shopify stores send instant WhatsApp follow-ups after purchases, collect feedback, and surface negative experiences before they become churn.",
       "hero.cta1": "Start free",
       "hero.cta2": "See how it works",
       "hero.card.title": "Trusted by modern e-commerce teams",
@@ -41,7 +41,7 @@
         "A new order is created in Shopify and instantly triggers your review flow.",
       "how.2.h": "WhatsApp message sent",
       "how.2.p":
-        "HappyTab sends a friendly, branded message via WhatsApp Business API in Arabic or English.",
+        "HappyTap sends a friendly, branded message via WhatsApp Business API in Arabic or English.",
       "how.3.h": "Feedback appears in your dashboard",
       "how.3.p":
         "Ratings, notes, and alerts are gathered in one place so your team can respond quickly.",
@@ -97,7 +97,7 @@
       "footer.privacy": "Privacy Policy",
       "footer.terms": "Terms of Service",
       "footer.affiliation":
-        "This website is affiliated with <strong>Nassfeed</strong>.",
+        'HappyTap is a product owned and operated by <a href="https://nassfeed.com/"><strong>Nassfeed</strong></a>.',
 
       "privacy.h1": "Privacy Policy",
       "privacy.updated": "Last updated: August 3, 2026",
@@ -105,7 +105,7 @@
         "This is a preliminary privacy policy for review purposes only. It is not final legal advice and should be reviewed by counsel before deployment.",
       "privacy.collect.h": "What data we collect",
       "privacy.collect.p":
-        "HappyTab may process customer contact details, order information, feedback responses, and related metadata needed to send review requests and analyze customer satisfaction.",
+        "HappyTap may process customer contact details, order information, feedback responses, and related metadata needed to send review requests and analyze customer satisfaction.",
       "privacy.messages.h": "How messages are sent",
       "privacy.messages.p":
         "Messages may be sent through the WhatsApp Business API. Processing and delivery may involve infrastructure and service providers operated by Meta and related vendors. We do not claim to provide legal advice or guarantee specific delivery outcomes.",
@@ -125,24 +125,24 @@
         "This is a preliminary terms of service draft for review purposes only. It should be reviewed by counsel before final use.",
       "terms.use.h": "Use of the service",
       "terms.use.p":
-        "By using HappyTab, you agree to use the service responsibly and in accordance with applicable laws, platform policies, and your own customer communication standards.",
+        "By using HappyTap, you agree to use the service responsibly and in accordance with applicable laws, platform policies, and your own customer communication standards.",
       "terms.account.h": "Account responsibility",
       "terms.account.p":
         "You are responsible for the accuracy of the information you provide, including customer contact details and business data used with the service.",
       "terms.limits.h": "Limitations",
       "terms.limits.p":
-        "HappyTab provides tools to support review collection and reporting, but does not guarantee specific outcomes, response rates, or legal compliance in every jurisdiction.",
+        "HappyTap provides tools to support review collection and reporting, but does not guarantee specific outcomes, response rates, or legal compliance in every jurisdiction.",
       "terms.contact.h": "Contact",
       "terms.contact.p":
         'Questions about these terms can be sent to <a href="mailto:info@happytap.io">info@happytap.io</a>.'
     },
 
     ar: {
-      "index.title": "HappyTab | قياس رضا العملاء عبر واتساب",
+      "index.title": "HappyTap | قياس رضا العملاء عبر واتساب",
       "index.desc":
-        "يساعد HappyTab متاجر شوبيفاي على جمع تقييمات العملاء وإدارتها والتفاعل معها عبر واتساب.",
-      "privacy.title": "HappyTab | سياسة الخصوصية",
-      "terms.title": "HappyTab | شروط الخدمة",
+        "يساعد HappyTap متاجر شوبيفاي على جمع تقييمات العملاء وإدارتها والتفاعل معها عبر واتساب.",
+      "privacy.title": "HappyTap | سياسة الخصوصية",
+      "terms.title": "HappyTap | شروط الخدمة",
 
       "nav.features": "المميزات",
       "nav.pricing": "الأسعار",
@@ -153,7 +153,7 @@
       "hero.eyebrow": "⚡ تقييمات تنمو مع كل طلب",
       "hero.h1": "حوّل كل طلب إلى تقييم من عميلك",
       "hero.p":
-        "يساعد HappyTab متاجر شوبيفاي على إرسال رسائل متابعة فورية عبر واتساب بعد الشراء، وجمع آراء العملاء، ورصد التجارب السلبية قبل أن تتحول إلى فقدان للعميل.",
+        "يساعد HappyTap متاجر شوبيفاي على إرسال رسائل متابعة فورية عبر واتساب بعد الشراء، وجمع آراء العملاء، ورصد التجارب السلبية قبل أن تتحول إلى فقدان للعميل.",
       "hero.cta1": "ابدأ مجانًا",
       "hero.cta2": "شاهد كيف يعمل",
       "hero.card.title": "موثوق من فرق التجارة الإلكترونية الحديثة",
@@ -172,7 +172,7 @@
       "how.1.p": "يُنشأ طلب جديد في شوبيفاي ويُفعّل مسار التقييم فورًا.",
       "how.2.h": "تُرسل رسالة واتساب",
       "how.2.p":
-        "يرسل HappyTab رسالة ودّية تحمل هوية متجرك عبر واتساب بزنس بالعربية أو الإنجليزية.",
+        "يرسل HappyTap رسالة ودّية تحمل هوية متجرك عبر واتساب بزنس بالعربية أو الإنجليزية.",
       "how.3.h": "تظهر الآراء في لوحتك",
       "how.3.p":
         "تُجمع التقييمات والملاحظات والتنبيهات في مكان واحد ليستجيب فريقك بسرعة.",
@@ -227,7 +227,7 @@
       "footer.privacy": "سياسة الخصوصية",
       "footer.terms": "شروط الخدمة",
       "footer.affiliation":
-        "هذا الموقع تابع لشركة <strong>Nassfeed</strong>.",
+        'HappyTap منتج تملكه وتديره <a href="https://nassfeed.com/"><strong>Nassfeed</strong></a>.',
 
       "privacy.h1": "سياسة الخصوصية",
       "privacy.updated": "آخر تحديث: 3 أغسطس 2026",
@@ -235,7 +235,7 @@
         "هذه سياسة خصوصية أولية لأغراض المراجعة فقط، وليست استشارة قانونية نهائية، ويجب مراجعتها من قِبل مستشار قانوني قبل الاعتماد.",
       "privacy.collect.h": "البيانات التي نجمعها",
       "privacy.collect.p":
-        "قد يعالج HappyTab بيانات التواصل مع العملاء، ومعلومات الطلبات، وردود التقييم، والبيانات الوصفية المرتبطة بها واللازمة لإرسال طلبات التقييم وتحليل رضا العملاء.",
+        "قد يعالج HappyTap بيانات التواصل مع العملاء، ومعلومات الطلبات، وردود التقييم، والبيانات الوصفية المرتبطة بها واللازمة لإرسال طلبات التقييم وتحليل رضا العملاء.",
       "privacy.messages.h": "كيف تُرسل الرسائل",
       "privacy.messages.p":
         "قد تُرسل الرسائل عبر واجهة واتساب بزنس. وقد يشمل التشغيل والتسليم بنية تحتية ومزوّدي خدمات تديرهم Meta وجهات مرتبطة بها. نحن لا نقدّم استشارات قانونية ولا نضمن نتائج تسليم محددة.",
@@ -255,13 +255,13 @@
         "هذه مسودة أولية لشروط الخدمة لأغراض المراجعة فقط، ويجب مراجعتها من قِبل مستشار قانوني قبل الاعتماد النهائي.",
       "terms.use.h": "استخدام الخدمة",
       "terms.use.p":
-        "باستخدامك HappyTab فإنك توافق على استخدام الخدمة بمسؤولية ووفقًا للقوانين المعمول بها وسياسات المنصات ومعايير التواصل مع عملائك.",
+        "باستخدامك HappyTap فإنك توافق على استخدام الخدمة بمسؤولية ووفقًا للقوانين المعمول بها وسياسات المنصات ومعايير التواصل مع عملائك.",
       "terms.account.h": "مسؤولية الحساب",
       "terms.account.p":
         "أنت مسؤول عن دقة المعلومات التي تقدّمها، بما في ذلك بيانات التواصل مع العملاء وبيانات نشاطك التجاري المستخدمة مع الخدمة.",
       "terms.limits.h": "حدود المسؤولية",
       "terms.limits.p":
-        "يوفّر HappyTab أدوات لدعم جمع التقييمات وإعداد التقارير، لكنه لا يضمن نتائج محددة أو معدلات استجابة أو الامتثال القانوني في كل الولايات القضائية.",
+        "يوفّر HappyTap أدوات لدعم جمع التقييمات وإعداد التقارير، لكنه لا يضمن نتائج محددة أو معدلات استجابة أو الامتثال القانوني في كل الولايات القضائية.",
       "terms.contact.h": "تواصل معنا",
       "terms.contact.p":
         'يمكن إرسال الأسئلة المتعلقة بهذه الشروط إلى <a href="mailto:info@happytap.io">info@happytap.io</a>.'
