@@ -275,7 +275,7 @@
     each("data-i18n-content", function (el, v) { el.setAttribute("content", v); });
 
     var label = document.querySelector("#lang-toggle .lang-text");
-    if (label) label.textContent = lang === "ar" ? "EN" : "عربي";
+    if (label) label.textContent = lang === "ar" ? "English" : "عربي";
 
     var btn = document.getElementById("lang-toggle");
     if (btn) {

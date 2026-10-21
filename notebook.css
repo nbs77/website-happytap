@@ -168,7 +168,7 @@ html[lang="ar"] .hand { font-family: Marhey, var(--hand); font-weight: 600; }
 }
 .lang-toggle:hover { color: var(--green-700); }
 .lang-toggle svg { width: 16px; height: 16px; flex-shrink: 0; }
-/* The label swaps between "عربي" and "EN" — reserve room so the
+/* The label swaps between "عربي" and "English" — reserve room so the
    surrounding nav doesn't shift when it changes. */
 .lang-toggle .lang-text { min-width: 2.4em; text-align: center; }
 
